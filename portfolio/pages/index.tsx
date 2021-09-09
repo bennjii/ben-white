@@ -1,66 +1,70 @@
 
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { skipPartiallyEmittedExpressions } from 'typescript';
+import styles from '@styles/Home.module.css'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next TypeScript App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { ArrowDown, ArrowRight, Menu } from 'react-feather'
+import ScrollReminder from '@public/components/scroll_reminder';
+import Button from '@public/components/button';
+import Header from '@components/header';
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+// In case I change my username in the future :')
+const CURRENT_USERNAME = "UnRealReincarlution";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+const fetcher = (url, token) =>
+  fetch(url, {
+    method: 'GET',
+    headers: new Headers({ 'Content-Type': 'application/json', token }),
+    credentials: 'same-origin',
+  }).then((res) => res.json())
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+export const getServerSideProps: GetServerSideProps = async (
+    context: GetServerSidePropsContext
+  ) => {
+	const data = await fetcher(`https://api.github.com/users/${CURRENT_USERNAME}/repos`, '');
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    return {
+        props: {
+            data
+        }
+    }
 }
+/**
+ * Home, Features the main projects at any one time. Taken from, github through the API and displayed in a custom viewport that intereperates .MD files
+ * The Main projects shall include:
+ * -	Learn To Code
+ * -	transcribe
+ * -	Daily
+ * -	fortitude
+ * -	scholarship
+ * 
+ * Showing design skills, appropriateness of design, where and how different features are used and integrated, consideration of users, unique coding and development skills used, etc.
+ * 
+ * @returns React Page.
+ */
+
+export const Home: React.FC<{ data: any }> = ({ data }) => {
+    return (
+        <div className={styles.page}>
+			<Header />
+
+			<ScrollReminder />
+
+			<section className={styles.primarySection}>
+				<h1>ben white</h1>
+				<p>typescript, react, nodejs, c++</p>
+			</section>
+
+			<section className={styles.learnToCode}>
+				{/* <div className={styles.sectionTitle}><h4>ONE</h4></div> */}
+				<h1>learn to code</h1>
+				<p>free program for others to use to learn how to code</p>
+				<br /><br />
+				<Button title={"case study"} href="./study/learn-to-code"></Button>
+			</section>
+        </div>
+    )
+}
+
+export default Home

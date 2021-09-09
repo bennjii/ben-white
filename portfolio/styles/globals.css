@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url('../public/fonts/Public_Sans/PublicSans-VariableFont_wght.ttf');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url('../public/fonts/Public_Sans/PublicSans-Italic-VariableFont_wght.ttf');
+  font-weight: 1 999;
+  font-style: italic;
+}

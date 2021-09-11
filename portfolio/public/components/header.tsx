@@ -9,7 +9,7 @@ export const Header: React.FC<{ }> = ({ }) => {
     return (
         <div className={styles.header}>
             <div>
-                <p>ben white</p>
+                <p style={{ opacity: headerOpen ? "1" : "0" }}>ben white</p>
                 <Menu color={headerOpen ? "#0B0C11" : "#f4f4f4"} onClick={() => setHeaderOpen(!headerOpen)}></Menu>
             </div>
 
@@ -18,7 +18,7 @@ export const Header: React.FC<{ }> = ({ }) => {
                 <div className={styles.headerLong}>
                     <div>
                         <h2>LINKS</h2>
-                        <Button title="home" href={window?.location?.hostname} theme></Button>
+                        <Button title="home" href={`http://${window?.location?.host}`} theme></Button>
                         <Button title="github" href="https://github.com/UnRealReincarlution" theme></Button>
                         <Button title="linkedin" href="https://www.linkedin.com/in/ben-white-030a1b204/" theme></Button>
 

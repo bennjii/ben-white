@@ -15,7 +15,7 @@ export const ScrollReminder: React.FC<{}> = ({ }) => {
             <div className={styles.scrollReminder}>
                 <div>
                     SCROLL
-                    <ArrowDown size={18} strokeWidth={1}></ArrowDown>
+                    <ArrowDown size={16}></ArrowDown>
                 </div>
             </div>
             :

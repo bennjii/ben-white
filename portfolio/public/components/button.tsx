@@ -9,7 +9,7 @@ export const Button: React.FC<{ title: string, href: string, icon?: any, theme?:
     return theme ? 
         <a href={href} className={styles.headerButton} {...args}>{title}</a>
     : 
-        <a href={href} {...args}>{title ? title : ""}{icon ? icon : <ArrowRight size={18} strokeWidth={2}></ArrowRight>}</a>
+        <a href={href} {...args}>{title ? title : ""}{icon ? icon : <ArrowRight size={18} strokeWidth={1}></ArrowRight>}</a>
 }
 
 export default Button

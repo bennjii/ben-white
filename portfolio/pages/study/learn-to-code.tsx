@@ -28,7 +28,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     <Button title={""} href={"https://github.com/UnRealReincarlution/learn-to-code"} icon={<GitHub size={16} color={"#f4f4f4"} />} />
 
                     <p className={styles.pinItem}>2020</p>
-                    <Button title={"live preview"} href={"https://learn-to-code-orpin.vercel.app/auth"} style={{ justifySelf: 'flex-end' }} />
+                    <Button title={"live preview"} href={"https://learn-to-code-orpin.vercel.app/"}  /> {/* style={{ justifySelf: 'flex-end' }} */}
                 </div>
                 
                 <div className={styles.caseStudyContent}>

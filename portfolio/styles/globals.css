@@ -36,9 +36,9 @@ footer div {
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 @font-face {
   font-family: "Public Sans";

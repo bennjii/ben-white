@@ -10,6 +10,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
 }
 
 footer {
@@ -18,9 +24,11 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   opacity: .7;
+
+  font-family: 'Public Sans';
 }
 
-footer h2 {
+footer h6 {
   font-weight: 600;
   font-size: 1rem;
 }
@@ -51,4 +59,35 @@ footer div {
   src: url('../public/fonts/Public_Sans/PublicSans-Italic-VariableFont_wght.ttf');
   font-weight: 1 999;
   font-style: italic;
+}
+
+@font-face {
+  font-family: "DM Serif";
+  src: url('../public/fonts/DM_Serif/DMSerifText-Regular.ttf');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: "DM Serif";
+  src: url('../public/fonts/DM_Serif/DMSerifText-Italic.ttf');
+  font-weight: 1 999;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url('../public/fonts/DM_Sans/DMSans-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url('../public/fonts/DM_Sans/DMSans-Medium.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url('../public/fonts/DM_Sans/DMSans-Bold.ttf');
+  font-weight: 800;
 }

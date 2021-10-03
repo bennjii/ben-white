@@ -16,6 +16,7 @@ import Image from 'next/image'
 const CURRENT_USERNAME = "UnRealReincarlution";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import Footer from '@components/footer';
 
 const fetcher = (url, token) =>
   fetch(url, {
@@ -107,7 +108,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 					<div>
 						<h1>transcribe</h1>
 						<p>fast & performant text editor</p>
-						<Button title={"case study"} href="./study/learn-to-code"></Button>
+						<Button title={"case study"} href="./study/transcribe"></Button>
 					</div>
 				</div>
 
@@ -121,7 +122,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 					<div>
 						<h1>fortitude</h1>
 						<p>advanced discord clone</p>
-						<Button title={"case study"} href="./study/learn-to-code"></Button>
+						<Button title={"case study"} href="https://github.com/UnRealReincarlution/fortitude"></Button>
 					</div>
 				</div>
 
@@ -149,7 +150,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 					<div>
 						<h1>HPP</h1>
 						<p>predicting house prices</p>
-						<Button title={"case study"} href="./study/learn-to-code"></Button>
+						<Button title={"case study"} href="https://docs.google.com/document/d/1VN26wH46sXJei4uEulj11jcmNTLf8IWalg10tqIFjio/edit?usp=sharing"></Button>
 					</div>
 				</div>
 			</section> 
@@ -158,15 +159,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 				<h1>Contact</h1>
 			</div>
 			
-			<footer>
-				<div>
-					<h2>BEN WHITE &copy; {new Date().getFullYear()}</h2>
-					<a href="https://github.com/UnRealReincarlution"><GitHub size={16}/></a>
-					<a href="https://www.linkedin.com/in/ben-white-030a1b204/"><Linkedin size={16}/></a>
-				</div>
-				
-				<h2>AUCKLAND, NEW ZEALAND</h2>
-			</footer>
+			<Footer />
         </div>
     )
 }

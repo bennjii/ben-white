@@ -29,7 +29,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                         <p>learn to code</p>
                         <Button title={""} href={"https://github.com/UnRealReincarlution/learn-to-code"} icon={<GitHub size={16} color={"#070707"} style={{ marginBottom: '-3px' }}/>} />
 
-                        <p className={styles.pinItem}>2020</p>
+                        <p className={styles.pinItem}>FEB 2021</p>
                     </div>
                     
                     <Button title={"live preview"} href={"https://learn-to-code-orpin.vercel.app/"}  /> {/* style={{ justifySelf: 'flex-end' }} */}
@@ -76,6 +76,8 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
                     <div className={styles.signature}>
                         Ben White
+
+                        {/* <p>N</p> */}
                     </div>
                 </div>
             </div>

@@ -4,16 +4,14 @@ import { useEffect, useState } from 'react';
 import Button from './button';
 
 export const Header: React.FC<{ }> = ({ }) => {
-    const [ headerOpen, setHeaderOpen ] = useState(false);
 
     return (
         <div className={styles.header}>
             <div>
-                <p style={{ opacity: headerOpen ? "1" : "0" }}>ben white</p>
-                <Menu color={headerOpen ? "#0B0C11" : "#f4f4f4"} onClick={() => setHeaderOpen(!headerOpen)}></Menu>
+                <a href="../">ben white</a>
             </div>
 
-            {
+            {/* {
                 headerOpen ? 
                 <div className={styles.headerLong}>
                     <div>
@@ -31,7 +29,7 @@ export const Header: React.FC<{ }> = ({ }) => {
                 </div>
                 :
                 <></>
-            }
+            } */}
             
         </div>
     )

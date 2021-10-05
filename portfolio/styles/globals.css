@@ -91,3 +91,15 @@ footer div {
   src: url('../public/fonts/DM_Sans/DMSans-Bold.ttf');
   font-weight: 800;
 }
+
+@font-face {
+  font-family: "Holimount";
+  src: url('../public/fonts/Holimount/Holimount.otf');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: "Holimount Swash";
+  src: url('../public/fonts/Holimount/Holimount\ swash.otf');
+  font-weight: 1 999;
+}

@@ -1,8 +1,9 @@
 import { GitHub, Linkedin } from "react-feather";
+import styles from '@styles/Home.module.css'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className={styles.refFooter}>
             <div>
                 <h6>BEN WHITE &rarr; {new Date().getFullYear()}</h6>
                 <a href="https://github.com/UnRealReincarlution"><GitHub size={16}/></a>

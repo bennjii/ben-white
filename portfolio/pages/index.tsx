@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { skipPartiallyEmittedExpressions } from 'typescript';
 import styles from '@styles/Home.module.css'
 
-import { ArrowDown, ArrowRight, GitHub, Linkedin, Menu } from 'react-feather'
+import { ArrowDown, ArrowRight, GitHub, Linkedin, Mail, Menu } from 'react-feather'
 import ScrollReminder from '@public/components/scroll_reminder';
 import Button from '@public/components/button';
 import Header from '@components/header';
@@ -17,6 +17,7 @@ const CURRENT_USERNAME = "UnRealReincarlution";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Footer from '@components/footer';
+import Email from '@components/email';
 
 const fetcher = (url, token) =>
   fetch(url, {
@@ -72,7 +73,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 				
 				<p>I am a full stack web developer from New Zealand</p>
 
-				<div>
+				<div className={styles.scrollReminderIfHideHide}>
 					<ScrollReminder />
 				</div>
 			</section>
@@ -84,9 +85,23 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 			
 			<section className={styles.projectList}>
 				{/* style={{ background: "linear-gradient(180deg,#ffd2e6,#b4d7ff)" }} */}
-				<div className={styles.project}>
+				<div className={styles.project} >
 					<div className={styles.h2Roller}>
 						<h2>01</h2>
+						<hr />
+						<h2>TRANSCRIBE</h2>
+					</div>
+
+					<div>
+						<h1>transcribe</h1>
+						<p>fast & performant text editor</p>
+						<Button title={"case study"} href="./study/transcribe"></Button>
+					</div>
+				</div>
+
+				<div className={styles.project}>
+					<div className={styles.h2Roller}>
+						<h2>02</h2>
 						<hr />
 						<h2>LEARN TO CODE</h2>
 					</div>
@@ -100,20 +115,6 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
 				<div className={styles.project} >
 					<div className={styles.h2Roller}>
-						<h2>02</h2>
-						<hr />
-						<h2>TRANSCRIBE</h2>
-					</div>
-
-					<div>
-						<h1>transcribe</h1>
-						<p>fast & performant text editor</p>
-						<Button title={"case study"} href="./study/transcribe"></Button>
-					</div>
-				</div>
-
-				<div className={styles.project} >
-					<div className={styles.h2Roller}>
 						<h2>03</h2>
 						<hr />
 						<h2>FORTITUDE</h2>
@@ -122,7 +123,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 					<div>
 						<h1>fortitude</h1>
 						<p>advanced discord clone</p>
-						<Button title={"case study"} href="https://github.com/UnRealReincarlution/fortitude"></Button>
+						<Button title={"github"} href="https://github.com/UnRealReincarlution/fortitude"></Button>
 					</div>
 				</div>
 
@@ -158,6 +159,8 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 			<div className={styles.sectionTitle}>
 				<h1>Contact</h1>
 			</div>
+
+			<Email />
 			
 			<Footer />
         </div>

@@ -54,15 +54,21 @@
 
 .header {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 50px;
+  left: 50px;
 
   padding: 1rem;
   color: #0B0C11;
 
   z-index: 15;
 
-  width: 12vw;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  font-family: 'DM Serif';
+  color: #070707;
 }
 
 .header > div:first-of-type {
@@ -75,10 +81,10 @@
 
   /* padding: 4rem; */
   z-index: 100;
-  position: absolute;
-
+  /* position: absolute; */
+/* 
   top: 4rem;
-  right: 4rem;
+  right: 4rem; */
 
   cursor: pointer;
 
@@ -285,7 +291,8 @@
 
 .dedicated h2 {
   color: #070707;
-  font-size: 5rem;
+  font-size: 4rem;
+
   font-weight: 400;
   line-height: 4.9rem;
 
@@ -394,6 +401,8 @@
 
   background: rgb(255,255,255);
   border: solid 1px rgba(11, 12, 17, 0.664);
+
+  min-width: 350px;
 }
 
 .project:hover .h2Roller hr {
@@ -429,9 +438,14 @@
 
 @media screen and (max-width: 480px) {
   .page {
-    min-width: 100vw;
+    padding-top: 35%;
+    width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
+  }
+
+  .scrollReminderIfHideHide, .scrollReminderIfHideHide * {
+    display: none;
   }
 
   .page > section {
@@ -452,6 +466,47 @@
 
   .primarySection h1 sub {
     display: none;
+  }
+
+  .dedicated {
+    width: 80%;
+  }
+
+  .header {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+
+  .dedicated a {
+    white-space: nowrap;
+  }
+
+  .projectList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .refFooter {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .refFooter * {
+    margin: 0;
+  }
+
+  .titleInformation {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .caseStudyContent {
+    padding: 5% 0%;
   }
 }
 
@@ -490,4 +545,54 @@
 .signature {
   font-family: 'Holimount';
   font-size: 5rem;
+  margin-bottom: 0;
+
+  user-select: none;
+}
+
+.signature p {
+  font-family: "Holimount Swash";
+  font-size: 5rem;
+  margin: 0;
+  line-height: 0;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emailComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* border: 2px solid #070707; */
+  /* background-color: #0707071c; */
+
+  cursor: pointer;
+  transition: .2s ease all;
+}
+
+.emailComponent:hover {
+  background-color: #070707;
+  color: #f4f4f4;
+}
+
+.emailComponent div {
+  height: 50px;
+  width: 50px;
+  background-color: #070707;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emailComponent p {
+  padding: 0rem 1rem;
+  margin: 0;
 }

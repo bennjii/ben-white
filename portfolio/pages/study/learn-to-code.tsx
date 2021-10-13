@@ -9,12 +9,9 @@ import ScrollReminder from '@public/components/scroll_reminder';
 import Button from '@public/components/button';
 
 import Image from 'next/image'
-
-import authenticationImage from '@public/img/learning-authentication.png'
-import codespaceImage from '@public/img/learning-codespace.png'
-import homespaceImage from '@public/img/learning-homespace.png'
 import Header from '@components/header';
 import Footer from '@components/footer';
+import Signature from '@components/signature';
 
 export const Home: React.FC<{ data: any }> = ({ data }) => {
     return (
@@ -60,7 +57,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     </p>
 
                     <p>
-                        As a result, i find countless people uncertain about what they can or cannot do - allways uncertain about the true power of what a computer can do. Leaving them unsafe and exposed. Although this project may not solve the root cause - I aimed to improve our way of teaching youth. For those that are interested, they are able to use the website to learn how computers work. Starting with languages such as python or javascript for the more common and frequent web intereactions and moving towards lower level languages such as c++ where they may begin to find out just how powerful thier computer really is, hopefully encouraged to create something new or do something great. 
+                        As a result, I find countless people uncertain about what they can or cannot do - allways uncertain about the true power of what a computer can do. Leaving them unsafe and exposed. Although this project may not solve the root cause - I aimed to improve our way of teaching youth. For those that are interested, they are able to use the website to learn how computers work. Starting with languages such as python or javascript for the more common and frequent web intereactions and moving towards lower level languages such as c++ where they may begin to find out just how powerful thier computer really is, hopefully encouraged to create something new or do something great. 
                     </p>
 
                     <p>
@@ -74,11 +71,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
                     <p style={{ fontFamily: 'DM Serif', fontSize: '1rem' }}>cheers,</p>
 
-                    <div className={styles.signature}>
-                        Ben White
-
-                        {/* <p>N</p> */}
-                    </div>
+                    <Signature />
                 </div>
             </div>
 

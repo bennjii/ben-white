@@ -1,19 +1,32 @@
-import { Copy, GitHub, Linkedin, Mail } from "react-feather";
+import { Check, Copy, GitHub, Linkedin, Mail } from "react-feather";
 import styles from '@styles/Home.module.css'
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Email = () => {
     const [ active, setActive ] = useState(false);
+    const [ coppied, setCoppied ] = useState(false);
+
+    const input_ref = useRef<HTMLInputElement>(null);
 
     return (
         <section className={styles.contact}>
             <p>You can reach me through email, </p>
+            <input type="text" value="benwhite2413@gmail.com" ref={input_ref} style={{ visibility: 'hidden' }} />
 
-            <div className={styles.emailComponent} onMouseOver={() => setActive(true)} onMouseLeave={() => setActive(false)}>
+            <div className={styles.emailComponent} onMouseOver={() => setActive(true)} onMouseLeave={() => { setActive(false); setCoppied(false) }} onClick={() => {
+                input_ref.current.select();
+                input_ref.current.setSelectionRange(0, 99999);
+              
+                navigator.clipboard.writeText(input_ref.current.value);
+                setCoppied(true);
+            }}>
                 <div>
                     {
                         active ? 
-                        <Copy color={"#f4f4f4"} strokeWidth={1} />
+                            coppied ?
+                            <Check color={"#f4f4f4"} strokeWidth={1} />
+                            :
+                            <Copy color={"#f4f4f4"} strokeWidth={1} />
                         :
                         <Mail color={"#f4f4f4"} strokeWidth={1} />
                     }

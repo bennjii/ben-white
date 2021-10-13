@@ -10,11 +10,10 @@ import Button from '@public/components/button';
 
 import Image from 'next/image'
 
-import authenticationImage from '@public/img/learning-authentication.png'
-import codespaceImage from '@public/img/learning-codespace.png'
-import homespaceImage from '@public/img/learning-homespace.png'
+import signature from '@public/img/signature_2.png'
 import Header from '@components/header';
 import Footer from '@components/footer';
+import Signature from '@components/signature';
 
 export const Home: React.FC<{ data: any }> = ({ data }) => {
     return (
@@ -59,20 +58,16 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     {/* <Image src={codespaceImage} alt="Authentication" /> */}
 
                     <div className={styles.spacerScreen}>
-                        <h4>WHY NOT MOVE FORWARD?</h4>
-                        <h3>Why?</h3>
+                        <h4>OUT WITH THE OLD, IN WITH THE NEW</h4>
+                        <h3>Lets move forward!</h3>
                     </div>
 
                     <p>
-                        Many school systems fail to actively encourage and participate in teaching and educating our youth in our digital age. Where, many are left uncertain such as in digital cyber security with the rise of internet scams, ensuring they are educated in what is right, what is truethful should be a top priority. 
+                        So, we asked ourselves how can we improve with what we now know - and so we did. Releasing transcribe as a free, perforant website that anyone can use. Although many of the features we initially wished to implement may be delayed, the software is still in of itself complete.                        
                     </p>
 
                     <p>
-                        As a result, i find countless people uncertain about what they can or cannot do - allways uncertain about the true power of what a computer can do. Leaving them unsafe and exposed. Although this project may not solve the root cause - I aimed to improve our way of teaching youth. For those that are interested, they are able to use the website to learn how computers work. Starting with languages such as python or javascript for the more common and frequent web intereactions and moving towards lower level languages such as c++ where they may begin to find out just how powerful thier computer really is, hopefully encouraged to create something new or do something great. 
-                    </p>
-
-                    <p>
-                        I present, Learn to Code. Although the project was intended as a learning experience for myself, I find it has large potential value for the future of our society in both practice and in idea.
+                        As such - by all means, enjoy the software and have fun being creative and adventerous with what you do. Onwards an upwards.
                     </p>
 
                     <div className={styles.spacerScreen}>
@@ -82,11 +77,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
                     <p style={{ fontFamily: 'DM Serif', fontSize: '1rem' }}>cheers,</p>
 
-                    <div className={styles.signature}>
-                        Ben White
-
-                        {/* <p>N</p> */}
-                    </div>
+                    <Signature />
                 </div>
             </div>
 

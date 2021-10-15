@@ -32,7 +32,9 @@ const Email = () => {
                     }
                 </div>
                 
-                <p>benwhite2413@gmail.com</p>					
+                <p>
+                    { coppied ? "Coppied               " : "benwhite2413@gmail.com" }
+                </p>					
             </div>
         </section>
     )

@@ -508,6 +508,10 @@
   .caseStudyContent {
     padding: 5% 0%;
   }
+
+  .signature {
+    padding: 0 !important;
+  }
 }
 
 .spacerScreen {
@@ -548,6 +552,9 @@
   margin-bottom: 0;
 
   user-select: none;
+
+  margin: 0 auto;
+  padding: 0rem 25%;
 }
 
 .signature p {
@@ -562,6 +569,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  transition: .2s ease all;
 }
 
 .emailComponent {

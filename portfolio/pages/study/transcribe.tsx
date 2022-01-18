@@ -36,14 +36,14 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                 
                 <div className={styles.caseStudyContent}>
                     <p>
-                        When deciding upon my next endevour, I was frustrated with the performance issues with text editors when editing large files such as a book, publication or paper.
-                        This makes developing and writing incredibly dificult. In order to combat this, I decided to make my own.
+                        When deciding upon my next endeavour, I was frustrated with the performance issues with text editors when editing large files such as a book, publication or paper.
+                        This makes developing and writing incredibly difficult. In order to combat this, I decided to make my own.
                     </p>
 
                     <p>
                         Introducing transcribe, the application that allows users to write complex files with ease, allowing for multiple documents in a project for a more refined workflow.
                         <br /><br />
-                        This meaning - users have the ability to organise ideas, lay out where and when they want things to happen. And with the only beta introduced visionboard allows them to further develop thier ideas without the need for a pen or paper.
+                        This meaning - users have the ability to organize ideas, lay out where and when they want things to happen. And with the only beta introduced visionboard allows them to further develop their ideas without the need for a pen or paper.
                     </p>
 
                     <p>
@@ -52,10 +52,8 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     </p>
 
                     <p>
-                        We took design ideas from the best, asking our favourite authors what softwares they used, what were the shortcommings and what they wished was improved...
+                        We took design ideas from the best, asking our favorite authors what softwares they used, what were the shortcomings and what they wished was improved...
                     </p>
-
-                    {/* <Image src={codespaceImage} alt="Authentication" /> */}
 
                     <div className={styles.spacerScreen}>
                         <h4>OUT WITH THE OLD, IN WITH THE NEW</h4>
@@ -63,11 +61,11 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     </div>
 
                     <p>
-                        So, we asked ourselves how can we improve with what we now know - and so we did. Releasing transcribe as a free, perforant website that anyone can use. Although many of the features we initially wished to implement may be delayed, the software is still in of itself complete.                        
+                        So, we asked ourselves how can we improve with what we now know - and so we did. Releasing transcribe as a free, high performing website that anyone can use. Although many of the features we initially wished to implement may be delayed, the software is still in of itself complete.                        
                     </p>
 
                     <p>
-                        As such - by all means, enjoy the software and have fun being creative and adventerous with what you do. Onwards an upwards.
+                        As such - by all means, enjoy the software and have fun being creative and adventurous with what you do. Onwards an upwards.
                     </p>
 
                     <div className={styles.spacerScreen}>

@@ -469,6 +469,9 @@
     width: 80%;
   }
 } */
+.smallScreen {
+  display: none;
+}
 
 @media screen and (max-width: 480px) {
   .page {
@@ -485,19 +488,20 @@
     display: none;
   }
 
-  .page > section {
-    /* padding: 10%; */
-    /* display: flex;
-
-    position: relative; */
-  }
-
   .primarySection h1 {
     font-size: 4rem;
     font-weight: 800;
 
     margin-bottom: 3rem;
     position: relative;
+  }
+
+  .largeScreen {
+    display: none;
+  }
+
+  .smallScreen {
+    display: block;
   }
 
   .primarySection h1 sub {
@@ -689,6 +693,11 @@
   font-weight: 700;
   line-height: 1.75rem;
   font-size: 1.125rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
   /* font-family: "Roboto"; */
 }
 
@@ -713,8 +722,19 @@
   font-size: .75rem;
   margin: 0;
   line-height: .75rem;
+  margin-top: 2px;
 }
 
+.projects > div > div > div {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  height: 1.3rem;
+  width: 1.3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (min-width: 768px) {
   .spacer {
@@ -725,8 +745,8 @@
 
 @media (max-width: 768px) {
   .spacer {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -767,4 +787,14 @@
   .page {
     width: 95%;
   }
+}
+
+.redirect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }

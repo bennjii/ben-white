@@ -24,7 +24,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                 <div className={styles.titleInformation}>
                     <div>
                         <p>learn to code</p>
-                        <Button title={""} href={"https://github.com/UnRealReincarlution/learn-to-code"} icon={<GitHub size={16} color={"#070707"} style={{ marginBottom: '-3px' }}/>} />
+                        <Button title={""} href={"https://github.com/UnRealReincarlution/learn-to-code"} icon={<GitHub size={16} color={"#fff"} style={{ marginBottom: '-3px' }}/>} />
 
                         <p className={styles.pinItem}>FEB 2021</p>
                     </div>
@@ -41,11 +41,9 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     </p>
 
                     <p>
-                        There were a few aspects I needed to consider before engaging in creating the project, those being - the intended audiance, and hence how the lessons would be structured and the dificulties of each. 
+                        There were a few aspects I needed to consider before engaging in creating the project, those being - the intended audience, and hence how the lessons would be structured and the difficulties of each. 
                         The design style, such that the design is cohesive and coherent.
                     </p>
-
-                    {/* <Image src={codespaceImage} alt="Authentication" /> */}
 
                     <div className={styles.spacerScreen}>
                         <h4>TEACHING OUR YOUTH</h4>
@@ -53,11 +51,11 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                     </div>
 
                     <p>
-                        Many school systems fail to actively encourage and participate in teaching and educating our youth in our digital age. Where, many are left uncertain such as in digital cyber security with the rise of internet scams, ensuring they are educated in what is right, what is truethful should be a top priority. 
+                        Many school systems fail to actively encourage and participate in teaching and educating our youth in our digital age. Where, many are left uncertain such as in digital cyber security with the rise of internet scams, ensuring they are educated in what is right, what is truthful should be a top priority. 
                     </p>
 
                     <p>
-                        As a result, I find countless people uncertain about what they can or cannot do - allways uncertain about the true power of what a computer can do. Leaving them unsafe and exposed. Although this project may not solve the root cause - I aimed to improve our way of teaching youth. For those that are interested, they are able to use the website to learn how computers work. Starting with languages such as python or javascript for the more common and frequent web intereactions and moving towards lower level languages such as c++ where they may begin to find out just how powerful thier computer really is, hopefully encouraged to create something new or do something great. 
+                        As a result, I find countless people uncertain about what they can or cannot do - always uncertain about the true power of what a computer can do. Leaving them unsafe and exposed. Although this project may not solve the root cause - I aimed to improve our way of teaching youth. For those that are interested, they are able to use the website to learn how computers work. Starting with languages such as python or javascript for the more common and frequent web interactions and moving towards lower level languages such as c++ where they may begin to find out just how powerful their computer really is, hopefully encouraged to create something new or do something great. 
                     </p>
 
                     <p>

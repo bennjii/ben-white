@@ -7,29 +7,21 @@ import { ApolloClient, createHttpLink, InMemoryCache, gql } from "@apollo/client
 import { setContext } from '@apollo/client/link/context';
 
 import {
-	SiAmazonaws,
 	SiBabel,
 	SiCplusplus,
 	SiDocker,
 	SiGit,
 	SiGithub,
 	SiGo,
-	SiJava,
 	SiJupyter,
 	SiLinkedin,
-	SiMongodb,
 	SiNextdotjs as SiNextDotJs,
 	SiNodedotjs as SiNodeDotJs,
 	SiPostgresql,
 	SiPython,
 	SiReact,
-	SiRedis,
-	SiStyledcomponents as SiStyledComponents,
-	SiTailwindcss,
-	SiTwitter,
 	SiTypescript,
 	SiWebpack,
-	SiWebstorm,
 	SiYarn,
 } from 'react-icons/si';
 
@@ -54,12 +46,6 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async function () {
-	// const pinnedRepos = await fetch(
-	// 	`https://gh-pinned-repos.egoist.sh/?username=${CURRENT_USERNAME}`,
-	// ).then(async response => {
-	// 	console.log(response)
-	// 	return response.json() as Promise<PinnedRepo[]>
-	// });
 	const httpLink = createHttpLink({
 		uri: 'https://api.github.com/graphql',
 	  });
@@ -127,9 +113,6 @@ export const getStaticProps: GetStaticProps<Props> = async function () {
 };
 
 export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) => {
-	// const {data: projects = pinnedRepos} = useGitHubPinnedRepos(CURRENT_USERNAME);
-
-	console.log(pinnedRepos);
 
     return (
         <div className={styles.page}>
@@ -168,11 +151,17 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 					</div>
 				</div>
 
-				<h1>
+				<h1 className={styles.largeScreen}>
 					I{"'"}m a Student,
 					<br />
 					Developer & Designer
 					{/* <sub>NZ</sub> */}
+				</h1>
+
+				<h1 className={styles.smallScreen}>
+					I{"'"}m a 🎓,
+					<br />
+					🧑‍💻 & Designer
 				</h1>
 				
 				<p>I am a 17y/o software engineer from New Zealand</p>
@@ -201,7 +190,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				<div className={styles.spacer}></div>
 			
 				<h2>How do I do it?</h2>
-				<p>Why, not without these incredible tools of course! Below is a list of most of the tools I know, and I{'\''}m proud to say that this list grows all the time, I just cant help it!</p>
+				<p>Why, not without these incredible tools of course! Below is a wonderful list of some of my favorite tools I know and use. I{'\''}m proud to say that this list grows all the time, I just cant help learning!</p>
 				
 				<ul className={styles.techGrid}
 				>

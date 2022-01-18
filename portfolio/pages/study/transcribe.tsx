@@ -26,7 +26,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
                 <div className={styles.titleInformation}>
                     <div>
                         <p>transcribe</p>
-                        <Button title={""} href={"https://github.com/UnRealReincarlution/transcribe"} icon={<GitHub size={16} color={"#070707"} style={{ marginBottom: '-3px' }}/>} />
+                        <Button title={""} href={"https://github.com/UnRealReincarlution/transcribe"} icon={<GitHub size={16} color={"#fff"} style={{ marginBottom: '-3px' }}/>} />
 
                         <p className={styles.pinItem}>May 2021</p>
                     </div>

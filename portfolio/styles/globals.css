@@ -7,6 +7,35 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --tw-gradient-from: #111827;
+  --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to,rgb(17 24 39/0));
+  --tw-gradient-to: #000;
+  --tw-text-opacity: 1;
+  --color: rgb(245 245 245/var(--tw-text-opacity));
+}
+
+html {
+  background: var(--tw-gradient-from);
+  color: var(--color);
+  font-size: 0.9rem;
+}
+
+body {
+  background: linear-gradient(to top right,var(--tw-gradient-stops)) !important;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-family: "Public Sans";
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -102,4 +131,16 @@ footer div {
   font-family: "Holimount Swash";
   src: url('../public/fonts/Holimount/Holimount\ swash.otf');
   font-weight: 1 999;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url('../public/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url('../public/fonts/Roboto/Roboto-Bold.ttf');
+  font-weight: 700;
 }

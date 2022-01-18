@@ -1,23 +1,46 @@
-
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext, GetStaticProps } from 'next';
 import Head from 'next/head'
 import { skipPartiallyEmittedExpressions } from 'typescript';
 import styles from '@styles/Home.module.css'
 
-import { ArrowDown, ArrowRight, GitHub, Linkedin, Mail, Menu } from 'react-feather'
-import ScrollReminder from '@public/components/scroll_reminder';
-import Button from '@public/components/button';
-import Header from '@components/header';
+import { ApolloClient, createHttpLink, InMemoryCache, gql } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
 
-import codespaceImage from '@public/img/learning-codespace.png'
-import Image from 'next/image'
+import {
+	SiAmazonaws,
+	SiBabel,
+	SiCplusplus,
+	SiDocker,
+	SiGit,
+	SiGithub,
+	SiGo,
+	SiJava,
+	SiJupyter,
+	SiLinkedin,
+	SiMongodb,
+	SiNextdotjs as SiNextDotJs,
+	SiNodedotjs as SiNodeDotJs,
+	SiPostgresql,
+	SiPython,
+	SiReact,
+	SiRedis,
+	SiStyledcomponents as SiStyledComponents,
+	SiTailwindcss,
+	SiTwitter,
+	SiTypescript,
+	SiWebpack,
+	SiWebstorm,
+	SiYarn,
+} from 'react-icons/si';
 
 // In case I change my username in the future :')
 const CURRENT_USERNAME = "UnRealReincarlution";
 import "animate.css/animate.min.css";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Footer from '@components/footer';
 import Email from '@components/email';
+import { PinnedRepo, } from '@components/github';
+import { ProjectCard } from '@components/project_card';
+import { ListItem } from '@components/list_item';
 
 const fetcher = (url, token) =>
   fetch(url, {
@@ -26,32 +49,87 @@ const fetcher = (url, token) =>
     credentials: 'same-origin',
   }).then((res) => res.json())
 
-export const getServerSideProps: GetServerSideProps = async (
-    context: GetServerSidePropsContext
-  ) => {
-	const data = await fetcher(`https://api.github.com/users/${CURRENT_USERNAME}/repos`, '');
-
-    return {
-        props: {
-            data
-        }
-    }
+type Props = {
+	pinnedRepos: PinnedRepo[]
 }
-/**
- * Home, Features the main projects at any one time. Taken from, github through the API and displayed in a custom viewport that intereperates .MD files
- * The Main projects shall include:
- * -	Learn To Code
- * -	transcribe
- * -	Daily
- * -	fortitude
- * -	scholarship
- * 
- * Showing design skills, appropriateness of design, where and how different features are used and integrated, consideration of users, unique coding and development skills used, etc.
- * 
- * @returns React Page.
- */
 
-export const Home: React.FC<{ data: any }> = ({ data }) => {
+export const getStaticProps: GetStaticProps<Props> = async function () {
+	// const pinnedRepos = await fetch(
+	// 	`https://gh-pinned-repos.egoist.sh/?username=${CURRENT_USERNAME}`,
+	// ).then(async response => {
+	// 	console.log(response)
+	// 	return response.json() as Promise<PinnedRepo[]>
+	// });
+	const httpLink = createHttpLink({
+		uri: 'https://api.github.com/graphql',
+	  });
+	  
+	const authLink = setContext((_, { headers }) => {
+	return {
+		headers: {
+		...headers,
+		authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+		}
+	}
+	});
+	
+	const client = new ApolloClient({
+		link: authLink.concat(httpLink),
+		cache: new InMemoryCache()
+	});
+
+	const { data } = await client.query({
+		query: gql`{
+			user(login: "unrealreincarlution") {
+			  pinnedItems(first: 6) {
+				totalCount
+				edges {
+				  node {
+					... on Repository {
+					  name
+					  id
+					  url
+					  stargazers {
+						totalCount
+					  }
+					  description
+					  forkCount
+					  primaryLanguage {
+						color
+						id
+						name
+					  }
+					  deployments(last: 1) {
+						nodes {
+						  commit {
+							message
+							messageHeadline
+							committedDate
+						  }
+						}
+					  }
+					}
+				  }
+				}
+			  }
+			}
+		  }
+		  `
+	  });
+	  
+	const { user } = data;
+	const pinnedRepos = user.pinnedItems.edges.map(edge => edge.node);
+
+	return {
+		props: {pinnedRepos},
+		revalidate: 120,
+	};
+};
+
+export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) => {
+	// const {data: projects = pinnedRepos} = useGitHubPinnedRepos(CURRENT_USERNAME);
+
+	console.log(pinnedRepos);
 
     return (
         <div className={styles.page}>
@@ -59,108 +137,95 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
 			<section className={styles.primarySection}>
 				<div className={styles.h2Roller}>
-					<h2>Hi there 👋</h2>
-					<hr />
-					<h2>I{"'"}m Ben White</h2>
+					<div>
+						<h2>Hi there 👋</h2>
+						<hr />
+						<h2>I{"'"}m Ben White</h2>
+					</div>
+					
+					<div>
+						<span onClick={() => {
+							window.location.href = "https://github.com/" + CURRENT_USERNAME
+						}}>
+						{
+							SiGithub({ style: {
+								height: '1.5rem',
+								width: '1.5rem'
+							} })
+						}
+						</span>
+						
+						<span onClick={() => {
+							window.location.href = "https://www.linkedin.com/in/ben-white-030a1b204/"
+						}}>
+						{
+							SiLinkedin({ style: {
+								height: '1.5rem',
+								width: '1.5rem'
+							} })
+						}
+						</span>
+					</div>
 				</div>
 
 				<h1>
 					I{"'"}m a Student,
 					<br />
 					Developer & Designer
-					<sub>NZ</sub>
+					{/* <sub>NZ</sub> */}
 				</h1>
 				
-				<p>I am a full stack web developer from New Zealand</p>
+				<p>I am a 17y/o software engineer from New Zealand</p>
 
-				<div className={styles.scrollReminderIfHideHide}>
+				{/* <div className={styles.scrollReminderIfHideHide}>
 					<ScrollReminder />
-				</div>
+				</div> */}
 			</section>
-
-			<div className={styles.sectionTitle}>
-				<h1>Case Studies <br/>& Projects </h1>
-			</div>
-
 			
 			<section className={styles.projectList}>
-				{/* style={{ background: "linear-gradient(180deg,#ffd2e6,#b4d7ff)" }} */}
-				<div className={styles.project} >
-					<div className={styles.h2Roller}>
-						<h2>01</h2>
-						<hr />
-						<h2>TRANSCRIBE</h2>
-					</div>
+				<h2>What do I do?</h2>
+				<p style={{ textAlign: 'justify' }}>
+					I work primarily in web technologies, utilizing the power of typescript and nextjs to create powerful web apps. Using these to provide tools and services for others is my main goal. Below is a teaser of my favorite projects at the moment! Take a look, click one and read up about it or try it out for yourself!
+				</p>
 
-					<div>
-						<h1>transcribe</h1>
-						<p>fast & performant text editor</p>
-						<Button title={"case study"} href="./study/transcribe"></Button>
-					</div>
+				<div className={styles.projects}>
+					{
+						pinnedRepos.map((project: PinnedRepo) => {
+							return (
+								<ProjectCard key={project.name} project={project} />
+							)
+						})
+					}
 				</div>
 
-				<div className={styles.project}>
-					<div className={styles.h2Roller}>
-						<h2>02</h2>
-						<hr />
-						<h2>LEARN TO CODE</h2>
-					</div>
+				<div className={styles.spacer}></div>
+			
+				<h2>How do I do it?</h2>
+				<p>Why, not without these incredible tools of course! Below is a list of most of the tools I know, and I{'\''}m proud to say that this list grows all the time, I just cant help it!</p>
+				
+				<ul className={styles.techGrid}
+				>
+					<ListItem icon={SiDocker} text="Docker" />
+					<ListItem icon={SiPostgresql} text="Postgres" />
+					<ListItem icon={SiReact} text="React.js" />
+					<ListItem icon={SiNodeDotJs} text="Node.js" />
+					<ListItem icon={SiTypescript} text="TypeScript" />
+					<ListItem icon={SiGo} text="Golang" />
+					<ListItem icon={SiNextDotJs} text="Next.js" />
+					<ListItem icon={SiWebpack} text="Webpack" />
+					<ListItem icon={SiBabel} text="Babel" />
+					<ListItem icon={SiYarn} text="Yarn" />
+					<ListItem icon={SiGit} text="Git" />
+					<ListItem icon={SiCplusplus} text="C++" />
+					<ListItem icon={SiPython} text="Python" />
+					<ListItem icon={SiJupyter} text="Jupyter" />
+				</ul>
 
-					<div>
-						<h1>learn to code</h1>
-						<p>teaching others how to code</p>
-						<Button title={"case study"} href="./study/learn-to-code"></Button>
-					</div>
-				</div>
+				<div className={styles.spacer}></div>
 
-				<div className={styles.project} >
-					<div className={styles.h2Roller}>
-						<h2>03</h2>
-						<hr />
-						<h2>FORTITUDE</h2>
-					</div>
-
-					<div>
-						<h1>fortitude</h1>
-						<p>advanced discord clone</p>
-						<Button title={"github"} href="https://github.com/UnRealReincarlution/fortitude"></Button>
-					</div>
-				</div>
-
-				<div className={styles.project} >
-					<div className={styles.h2Roller}>
-						<h2>04</h2>
-						<hr />
-						<h2>DAILY</h2>
-					</div>
-
-					<div>
-						<h1>daily</h1>
-						<p>customisable new-tab chrome extention</p>
-						<Button title={"github"} href="https://github.com/UnRealReincarlution/daily"></Button>
-					</div>
-				</div>
-
-				<div className={styles.project} >
-					<div className={styles.h2Roller}>
-						<h2>05</h2>
-						<hr />
-						<h2>MACHINE LEARNING</h2>
-					</div>
-
-					<div>
-						<h1>HPP</h1>
-						<p>predicting house prices</p>
-						<Button title={"case study"} href="https://docs.google.com/document/d/1VN26wH46sXJei4uEulj11jcmNTLf8IWalg10tqIFjio/edit?usp=sharing"></Button>
-					</div>
-				</div>
+				<h2>Want to know more?</h2>
+				<p>Why not get in contact with me! I{'\''}m available on discord @unrealg#4406,  <a href="https://twitter.com/UnRealG3">twitter</a>, or you can contact me via <a href="unrealgdev.buisiness@gmail.com">email</a>.</p>
 			</section> 
-
-			<div className={styles.sectionTitle}>
-				<h1>Contact</h1>
-			</div>
-
-			<Email />
 			
 			<Footer />
         </div>

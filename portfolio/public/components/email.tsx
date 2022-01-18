@@ -11,7 +11,7 @@ const Email = () => {
     return (
         <section className={styles.contact}>
             <p>You can reach me through email, </p>
-            <input type="text" value="benwhite2413@gmail.com" ref={input_ref} style={{ visibility: 'hidden' }} />
+            <input type="text" readOnly defaultValue="benwhite2413@gmail.com" ref={input_ref} style={{ visibility: 'hidden' }} />
 
             <div className={styles.emailComponent} onMouseOver={() => setActive(true)} onMouseLeave={() => { setActive(false); setCoppied(false) }} onClick={() => {
                 input_ref.current.select();

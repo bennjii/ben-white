@@ -70,7 +70,7 @@ export const Home: React.FC<{ data: any }> = ({ data }) => {
 
                     <div className={styles.spacerScreen}>
                         <h4>View Project</h4>
-                        <Button title={"live preview"} href={"https://learn-to-code-orpin.vercel.app/"} icon={<ArrowRight size={26} strokeWidth={1}></ArrowRight>} /> {/* style={{ justifySelf: 'flex-end' }} */}
+                        <Button title={"live preview"} href={"https://transcribe.vercel.app/"} icon={<ArrowRight size={26} strokeWidth={1}></ArrowRight>} /> {/* style={{ justifySelf: 'flex-end' }} */}
                     </div>
 
                     <p style={{ fontFamily: 'DM Serif', fontSize: '1rem' }}>cheers,</p>

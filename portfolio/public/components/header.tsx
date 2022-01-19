@@ -11,6 +11,8 @@ export const Header: React.FC<{ }> = ({ }) => {
                 <a href="../">ben white</a>
             </div>
 
+            <title>Ben White</title>
+
             {/* {
                 headerOpen ? 
                 <div className={styles.headerLong}>

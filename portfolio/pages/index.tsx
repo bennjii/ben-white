@@ -116,6 +116,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 
     return (
         <div className={styles.page}>
+			<title>Ben White</title>
 			{/* <Header /> */}
 
 			<section className={styles.primarySection}>

@@ -546,6 +546,27 @@
   }
 }
 
+.refFooter > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.refFooter p {
+  gap: .2rem !important;
+}
+
+.refFooter p, .refFooter a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.refFooter a:hover {
+  gap: 0.4rem;
+}
+
 .spacerScreen {
   display: flex;
   align-items: center;
@@ -773,8 +794,6 @@
     grid-template-rows: repeat(7, 25px);
   }
 }
-
-
 
 .techGrid > li {
   display: flex;

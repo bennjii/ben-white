@@ -3,7 +3,12 @@ import '../styles/globals.css'
 import type { AppProps /*, AppContext */ } from 'next/app'
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <meta name="theme-color" content="#000" />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for

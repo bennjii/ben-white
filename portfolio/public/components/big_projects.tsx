@@ -42,7 +42,7 @@ export const BigProj_ = () => {
                         <div>
                             <h1>fortitude</h1>
                             <p>advanced discord clone</p>
-                            <Button title={"github"} href="https://github.com/UnRealReincarlution/fortitude"></Button>
+                            <Button title={"github"} href="https://github.com/bennjii/fortitude"></Button>
                         </div>
                     </div>
     
@@ -56,7 +56,7 @@ export const BigProj_ = () => {
                         <div>
                             <h1>daily</h1>
                             <p>customisable new-tab chrome extention</p>
-                            <Button title={"github"} href="https://github.com/UnRealReincarlution/daily"></Button>
+                            <Button title={"github"} href="https://github.com/bennjii/daily"></Button>
                         </div>
                     </div>
     

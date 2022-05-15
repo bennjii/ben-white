@@ -8,7 +8,7 @@ const Post = () => {
     useEffect(() => {
         const { githubName } = router.query;
 
-        if(githubName) router.push(`https://github.com/UnRealReincarlution/${githubName}`)     
+        if(githubName) router.push(`https://github.com/bennjii/${githubName}`)     
     }, [router])
 
 

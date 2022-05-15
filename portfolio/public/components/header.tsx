@@ -19,7 +19,7 @@ export const Header: React.FC<{ }> = ({ }) => {
                     <div>
                         <h2>LINKS</h2>
                         <Button title="home" href={`http://${window?.location?.host}`} theme></Button>
-                        <Button title="github" href="https://github.com/UnRealReincarlution" theme></Button>
+                        <Button title="github" href="https://github.com/bennjii" theme></Button>
                         <Button title="linkedin" href="https://www.linkedin.com/in/ben-white-030a1b204/" theme></Button>
 
                         <h2>CASE STUDIES</h2>

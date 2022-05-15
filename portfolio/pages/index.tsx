@@ -7,26 +7,36 @@ import { ApolloClient, createHttpLink, InMemoryCache, gql } from "@apollo/client
 import { setContext } from '@apollo/client/link/context';
 
 import {
+	SiAdobephotoshop,
+	SiArduino,
 	SiBabel,
 	SiCplusplus,
+	SiDebian,
 	SiDocker,
 	SiGit,
 	SiGithub,
 	SiGo,
 	SiJupyter,
 	SiLinkedin,
+	SiLinux,
 	SiNextdotjs as SiNextDotJs,
 	SiNodedotjs as SiNodeDotJs,
 	SiPostgresql,
 	SiPython,
 	SiReact,
+	SiRust,
+	SiTensorflow,
 	SiTypescript,
 	SiWebpack,
+	SiWireguard,
 	SiYarn,
 } from 'react-icons/si';
+import { cardVariants, subTitleControl, titleControl, titleVariants } from '@components/framer_constants';
+
+import { motion } from "framer-motion"
 
 // In case I change my username in the future :')
-const CURRENT_USERNAME = "UnRealReincarlution";
+const CURRENT_USERNAME = "bennjii";
 import "animate.css/animate.min.css";
 import Footer from '@components/footer';
 import Email from '@components/email';
@@ -66,7 +76,7 @@ export const getStaticProps: GetStaticProps<Props> = async function () {
 
 	const { data } = await client.query({
 		query: gql`{
-			user(login: "unrealreincarlution") {
+			user(login: "bennjii") {
 			  pinnedItems(first: 6) {
 				totalCount
 				edges {
@@ -153,16 +163,19 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				</div>
 
 				<h1 className={styles.largeScreen}>
-					I{"'"}m a Student,
-					<br />
-					Developer & Designer
-					{/* <sub>NZ</sub> */}
+					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-5xl font-extrabold m-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
+						<motion.div variants={titleVariants}>I{"'"}m a Student,</motion.div>
+						<motion.div variants={titleVariants}>Developer & Designer</motion.div>
+					</motion.div>
 				</h1>
 
 				<h1 className={styles.smallScreen}>
-					I{"'"}m a 🎓,
-					<br />
-					🧑‍💻 & Designer
+					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-5xl font-extrabold m-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
+						<motion.div variants={titleVariants}>I{"'"}m a 🎓,</motion.div>
+						<motion.div variants={titleVariants}>🧑‍💻 &</motion.div>
+						<motion.div variants={titleVariants}>Designer</motion.div>
+
+					</motion.div>
 				</h1>
 				
 				<p>I am a 17y/o software engineer from New Zealand</p>
@@ -209,6 +222,12 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 					<ListItem icon={SiCplusplus} text="C++" />
 					<ListItem icon={SiPython} text="Python" />
 					<ListItem icon={SiJupyter} text="Jupyter" />
+					<ListItem icon={SiRust} text="Rust" />
+					<ListItem icon={SiTensorflow} text="TensorFlow" />
+					<ListItem icon={SiArduino} text="Arduino" />
+					<ListItem icon={SiAdobephotoshop} text="Photoshop" />
+					<ListItem icon={SiLinux} text="Linux" />
+					<ListItem icon={SiWireguard} text="Wireguard" />
 				</ul>
 
 				<div className={styles.spacer}></div>

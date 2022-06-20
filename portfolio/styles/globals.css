@@ -144,3 +144,16 @@ footer div {
   src: url('../public/fonts/Roboto/Roboto-Bold.ttf');
   font-weight: 700;
 }
+
+@font-face {
+  font-family: "Sans";
+  src: url('../public/fonts/ColfaxAI/ColfaxAIRegular.woff2');
+  font-weight: 400;
+}
+
+
+@font-face {
+  font-family: "Sans";
+  src: url('../public/fonts/ColfaxAI/ColfaxAIBold.woff2');
+  font-weight: 700;
+}

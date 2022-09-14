@@ -33,8 +33,18 @@ export const ProjectCard: React.FC<{ project: PinnedRepo }> = ({ project }) => {
                 </div> */}
             </span>
 
-            <div>
-                <span>
+            <div style={{ 
+                display: "grid",
+                gridTemplateColumns: "33% 33% 33%"
+            }}>
+                <span style={{ backgroundColor: project.primaryLanguage.color, padding: "5px 10px 5px 10px", borderRadius: "5px", fontFamily: 'Public Sans', fontWeight: 800, fontSize: "1rem" }}>
+                </span>
+
+                <span style={{  
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center"
+                }}>
                     <p>
                     {
                         project.stargazers.totalCount

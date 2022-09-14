@@ -178,7 +178,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 					</motion.div>
 				</h1>
 				
-				<p>I am a 17y/o software engineer from New Zealand</p>
+				<p>I am a 18y/o software engineer from New Zealand</p>
 
 				{/* <div className={styles.scrollReminderIfHideHide}>
 					<ScrollReminder />

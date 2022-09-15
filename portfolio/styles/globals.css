@@ -73,9 +73,16 @@ footer div {
   box-sizing: border-box;
 }
 
-/* ::-webkit-scrollbar {
-  display: none;
-} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url("../public/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf");
+  font-weight: 1 999;
+}
+
 
 @font-face {
   font-family: "Public Sans";

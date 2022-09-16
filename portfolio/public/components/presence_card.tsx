@@ -37,50 +37,53 @@ export const PresenceCard: React.FC<{}> = () => {
     time.pop();
 
     return ( 
-        <div className="max-w-5xl w-full flex flex-row rounded-[35px] bg-[#191414] px-6 py-6 gap-5 font-inter">
-            <div className="rounded-3xl overflow-hidden">
+        <div className="max-w-5xl w-fill flex flex-row rounded-[35px] bg-[#191414] px-6 py-6 gap-5 font-inter">
+            <div className="rounded-3xl overflow-hidden max-h-[80px] flex max-w-[80px] w-full h-[80px] flex-row items-center justify-center" style={{ backgroundImage: `url(${data.spotify.album_art_url})`, backgroundSize: "contain" }}>
                 {/* // eslint-disable-next-line @next/next/no-img-element */}
-                <img src={data.spotify.album_art_url} alt={data.spotify.album} height={80} width={80}/>
+                <div className="flex flex-row items-center justify-center gap-[3px]">
+                    <div className="animate-rise_fall w-1 bg-white h-4" style={{ animationDelay: "0.1s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-6" style={{ animationDelay: "0.2s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-8" style={{ animationDelay: "0.4s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-5" style={{ animationDelay: "0.3s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-8" style={{ animationDelay: "0.4s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-6" style={{ animationDelay: "0.9s" }} />
+                    <div className="animate-rise_fall w-1 bg-white h-4" style={{ animationDelay: "0.8s" }} />
+                </div>
+                {/* <img src={data.spotify.album_art_url} alt={data.spotify.album} height={80} width={80} className="w-full"/> */}
             </div>
 
-            <div className="flex flex-col items-start justify-center max-w-[200px] w-full truncate">
-                <h1 className="text-3xl font-bold">{data?.spotify.song}</h1>
-                <p className="text-opacity-50 text-white">{data?.spotify.artist}</p>
+            <div className="flex flex-col items-center justify-center">
+                <div className="max-w-[300px] w-full inline-block">
+                    <h1 className="text-3xl font-bold text-white block truncate">{data?.spotify.song}</h1>
+                    <p className="text-opacity-50 text-white block truncate">{data?.spotify.artist}</p>
+                </div>
             </div>
-
-            <div className="flex flex-col flex-1 p-3">
+            
+            <div className="flex flex-col flex-1 p-3" > {/* style={{ display: "none" }} */}
                 <div className="h-full flex flex-1 flex-col">
                     <div className="flex flex-row flex-1 max-h-1">
                         <div className="w-full bg-white bg-opacity-50 rounded-full overflow-hidden flex">
-                            <div style={{ width: `${progress}%`, transition: "150ms linear" }} className="bg-white bg-opacity-100"></div>
+                            <div style={{ width: `${progress}%`, transition: "150ms linear", borderRadius: "15px" }} className="bg-white bg-opacity-100"></div>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex flex-row flex-1">
-                    <div className="flex flex-col flex-1">
+                    <div className="flex flex-col flex-1 justify-end">
                         {/* Text */}
-                        <p className="font-semibold text-white text-base">Leave America, two kids follow her</p>
-                        <p className="font-semibold text-white text-opacity-50 text-base">I don{'\''}t wana talk about who{'\''}s doing it first</p>
+                        {/* <p className="font-semibold text-white text-xl m-0">Leave America, two kids follow her</p>
+                        <p className="font-semibold text-white text-opacity-50 text-sm m-0">I don{'\''}t wana talk about who{'\''}s doing it first</p> */}
                     </div>
                     <div className="flex flex-col justify-end items-end">
                         {/* Duration */}
                         <div className="flex flex-row items-center gap-1">
-                            <p className="font-bold text-sm text-white">{millisToMinutesAndSeconds(new Date().getTime() - data.spotify.timestamps.start )}</p>
-                            <p className="font-bold text-sm text-white">/</p>
-                            <p className="font-bold text-sm text-white text-opacity-50">{millisToMinutesAndSeconds(total)}</p>
+                            <p className="font-bold text-white">{millisToMinutesAndSeconds(new Date().getTime() - data.spotify.timestamps.start )}</p>
+                            <p className="font-bold text-white">/</p>
+                            <p className="font-bold text-white text-opacity-50">{millisToMinutesAndSeconds(total)}</p>
                         </div>
                         {/* Waveform */}
                         <div className="flex flex-row items-center gap-2">
-                            <svg width="20" height="16" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="1" y1="11.7772" x2="1" y2="17.3213" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="26.8653" y1="11.7772" x2="26.8653" y2="17.3213" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="5.31091" y1="5.31085" x2="5.31091" y2="23.7875" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="9.62177" y1="1" x2="9.62177" y2="27.0207" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="13.9327" y1="6.38861" x2="13.9327" y2="21.6321" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="18.2435" y1="2.0777" x2="18.2435" y2="27.0207" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                                <line x1="22.5544" y1="8.54407" x2="22.5544" y2="20.5544" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                            </svg>
+                            
 
                             <p className="font-bold text-sm text-white text-opacity-50">{time.join(":")}</p>
                         </div>

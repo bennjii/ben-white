@@ -24,7 +24,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      'inter': ['Inter']
+      'inter': ['Inter'],
+      'public': ['Public Sans']
     },
   },
   plugins: [],

@@ -163,7 +163,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				</div>
 
 				<h1 className={styles.largeScreen}>
-					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-5xl font-extrabold m-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
+					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-[5rem] leading-[5.4rem] font-extrabold mx-0 my-16 mb-8 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
 						<motion.div variants={titleVariants}>I{"'"}m a Student,</motion.div>
 						<motion.div variants={titleVariants}>Developer & Designer</motion.div>
 					</motion.div>
@@ -185,9 +185,9 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				</div> */}
 			</section>
 			
-			<section className={styles.projectList}>
-				<h2>What do I do?</h2>
-				<p style={{ textAlign: 'justify' }}>
+			<section className="flex flex-col gap-4 w-full flex-wrap justify-center max-w-3xl mx-auto"> {/* className={styles.projectList} */}
+				<h2 className="font-bold font-public">What do I do?</h2>
+				<p style={{ textAlign: 'justify', fontFamily: 'Sans', color: "rgba(255,255,255,.8)", fontWeight: 300, lineHeight: '2rem' }}>
 					I work primarily in web technologies, utilizing the power of typescript and nextjs to create powerful web apps. Using these to provide tools and services for others is my main goal. Below is a teaser of my favorite projects at the moment! Take a look, click one and read up about it or try it out for yourself!
 				</p>
 
@@ -203,7 +203,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 
 				<div className={styles.spacer}></div>
 			
-				<h2>How do I do it?</h2>
+				<h2 className="font-bold font-public">How do I do it?</h2>
 				<p>Why, not without these incredible tools of course! Below is a wonderful list of some of my favorite tools I know and use. I{'\''}m proud to say that this list grows all the time, I just cant help learning!</p>
 				
 				<ul className={styles.techGrid}
@@ -235,6 +235,8 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				<h2>Want to know more?</h2>
 				<p>Why not get in contact with me! I{'\''}m available on discord @unrealg#4406,  <a href="https://twitter.com/UnRealG3">twitter</a>, or you can contact me via <a href="unrealgdev.buisiness@gmail.com">email</a>.</p>
 			</section> 
+
+			<div className={styles.spacer}></div>
 			
 			<Footer />
         </div>

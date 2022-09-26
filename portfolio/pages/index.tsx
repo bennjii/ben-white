@@ -137,7 +137,9 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 						<h2>I{"'"}m Ben White</h2>
 					</div>
 					
-					<div>
+					<div className="flex flex-row items-center !gap-4">
+						<a className="!text-white" href="https://blog.bennjii.dev/">Blog</a>
+
 						<span onClick={() => {
 							window.location.href = "https://github.com/" + CURRENT_USERNAME
 						}}>

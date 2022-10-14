@@ -29,8 +29,11 @@ import {
 	SiTypescript,
 	SiWebpack,
 	SiWireguard,
-	SiYarn,
+	SiYarn
 } from 'react-icons/si';
+
+import { RiBookFill } from 'react-icons/ri'
+
 import { cardVariants, subTitleControl, titleControl, titleVariants } from '@components/framer_constants';
 
 import { motion } from "framer-motion"
@@ -43,6 +46,9 @@ import Email from '@components/email';
 import { PinnedRepo, } from '@components/github';
 import { ProjectCard } from '@components/project_card';
 import { ListItem } from '@components/list_item';
+import useMediaQuery from "@components/media_query";
+import ScrollReminder from "@components/scroll_reminder";
+import {PresenceCard} from "@components/presence_card";
 
 const fetcher = (url, token) =>
   fetch(url, {
@@ -123,22 +129,35 @@ export const getStaticProps: GetStaticProps<Props> = async function () {
 };
 
 export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) => {
+    const small = useMediaQuery(640);
 
     return (
         <div className={styles.page}>
 			<title>Ben White</title>
 			{/* <Header /> */}
+            <div className="flex flex-row items-center !max-w-full w-full overflow-hidden">
+                <PresenceCard profile={true} minimal={small} />
+            </div>
 
-			<section className={styles.primarySection}>
-				<div className={styles.h2Roller}>
-					<div>
-						<h2>Hi there 👋</h2>
-						<hr />
-						<h2>I{"'"}m Ben White</h2>
+            <section className={`${styles.primarySection}`} style={{ minHeight: small ? "calc(100vh - 150px);" : "35rem" }}>
+                <div className={`flex ${small ? "flex-col-reverse justify-items-start items-start gap-8" : "flex-row items-center"} justify-between opacity-70 gap-1 w-full`}>
+					<div className="flex flex-row items-center gap-1">
+						<h2 className="text-sm uppercase">Hi there 👋</h2>
+						<hr className="h-[1px] w-[30px] bg-[#f4f4f4] border-none m-0" />
+                        <h2 className="text-sm uppercase">I{"'"}m Ben White</h2>
 					</div>
 					
 					<div className="flex flex-row items-center !gap-4">
-						<a className="!text-white" href="https://blog.bennjii.dev/">Blog</a>
+                        <span className="!text-white" onClick={() => {
+                            window.location.href = "https://blog.bennjii.dev/"
+                        }}>
+                            {
+                                RiBookFill({ style: {
+                                    height: '1.5rem',
+                                    width: '1.5rem'
+                                } })
+                            }
+                        </span>
 
 						<span onClick={() => {
 							window.location.href = "https://github.com/" + CURRENT_USERNAME
@@ -172,25 +191,37 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				</h1>
 
 				<h1 className={styles.smallScreen}>
-					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-5xl font-extrabold m-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
+					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-7xl md:text-5xl font-extrabold m-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
 						<motion.div variants={titleVariants}>I{"'"}m a 🎓,</motion.div>
 						<motion.div variants={titleVariants}>🧑‍💻 &</motion.div>
 						<motion.div variants={titleVariants}>Designer</motion.div>
-
 					</motion.div>
 				</h1>
 				
-				<p>I am a 18y/o software engineer from New Zealand</p>
+				<p className="">I am an 18 year old software engineer from New Zealand</p>
 
-				{/* <div className={styles.scrollReminderIfHideHide}>
-					<ScrollReminder />
-				</div> */}
+                {
+                    small ?
+                        <>
+                                <div className="min-h-[5rem]"></div>
+
+                                <div
+                                    // className={styles.scrollReminderIfHideHide}
+                                    >
+                                    <ScrollReminder />
+                                </div>
+                        </>
+                    :
+                        <></>
+                }
 			</section>
 			
 			<section className="flex flex-col gap-4 w-full flex-wrap justify-center max-w-3xl mx-auto"> {/* className={styles.projectList} */}
 				<h2 className="font-bold font-public">What do I do?</h2>
-				<p style={{ textAlign: 'justify', fontFamily: 'Sans', color: "rgba(255,255,255,.8)", fontWeight: 300, lineHeight: '2rem' }}>
-					I work primarily in web technologies, utilizing the power of typescript and nextjs to create powerful web apps. Using these to provide tools and services for others is my main goal. Below is a teaser of my favorite projects at the moment! Take a look, click one and read up about it or try it out for yourself!
+				<p className="text-lg">
+					I work primarily in web technologies, utilizing the power of Typescript, NextJS and Rust to create powerful web experiences.
+                    <br />  <br />
+                    Below is a teaser of my favorite projects at the moment! Take a look, click one and read up about it or try it out for yourself!
 				</p>
 
 				<div className={styles.projects}>
@@ -234,8 +265,8 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 
 				<div className={styles.spacer}></div>
 
-				<h2>Want to know more?</h2>
-				<p>Why not get in contact with me! I{'\''}m available on discord @unrealg#4406,  <a href="https://twitter.com/UnRealG3">twitter</a>, or you can contact me via <a href="unrealgdev.buisiness@gmail.com">email</a>.</p>
+                <h2 className="font-bold font-public">Want to know more?</h2>
+				<p>Why not get in contact with me! I{'\''}m available on discord @unrealg#4406,  <a href="https://twitter.com/UnRealG3">twitter</a>, or you can contact me via <a href="mailto:contact@bennjii.dev">email</a>.</p>
 			</section> 
 
 			<div className={styles.spacer}></div>

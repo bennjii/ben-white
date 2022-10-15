@@ -1,6 +1,7 @@
 import { PinnedRepo } from "./github"
 import * as SiIcon from "react-icons/si"
 import { FiChevronRight, FiStar } from 'react-icons/fi'
+import { FaStar } from 'react-icons/fa'
 import { useRouter } from "next/router";
 
 export const ProjectCard: React.FC<{ project: PinnedRepo }> = ({ project }) => {
@@ -51,7 +52,7 @@ export const ProjectCard: React.FC<{ project: PinnedRepo }> = ({ project }) => {
                     }
                     </p>                    
                     {
-                        FiStar({
+                        FaStar({
                             style: {
                                 height: '.75rem',
                                 width: '.75rem',

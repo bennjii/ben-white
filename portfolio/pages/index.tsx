@@ -34,7 +34,7 @@ import {
 
 import { RiBookFill } from 'react-icons/ri'
 
-import { cardVariants, subTitleControl, titleControl, titleVariants } from '@components/framer_constants';
+import { titleControl, titleVariants } from '@components/framer_constants';
 
 import { motion } from "framer-motion"
 
@@ -135,16 +135,22 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
         <div className={styles.page}>
 			<title>Ben White</title>
 			{/* <Header /> */}
-            <div className="flex flex-row items-center !max-w-full w-full overflow-hidden">
-                <PresenceCard profile={true} minimal={small} />
-            </div>
+			{
+				small ? 
+				<div className="flex flex-row items-center !max-w-full w-full overflow-hidden pb-10">
+					<PresenceCard profile={true} minimal={small} />
+				</div>
+				:
+				<></>
+			}
+            
 
             <section className={`${styles.primarySection}`} style={{ minHeight: small ? "calc(100vh - 150px);" : "35rem" }}>
                 <div className={`flex ${small ? "flex-col-reverse justify-items-start items-start gap-8" : "flex-row items-center"} justify-between opacity-70 gap-1 w-full`}>
 					<div className="flex flex-row items-center gap-1">
-						<h2 className="text-sm uppercase">Hi there 👋</h2>
+						<h2 className="text-[1rem] uppercase">Hi there 👋</h2>
 						<hr className="h-[1px] w-[30px] bg-[#f4f4f4] border-none m-0" />
-                        <h2 className="text-sm uppercase">I{"'"}m Ben White</h2>
+                        <h2 className="text-[1rem] uppercase">I{"'"}m Ben White</h2>
 					</div>
 					
 					<div className="flex flex-row items-center !gap-4">
@@ -184,7 +190,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				</div>
 
 				<h1 className={styles.largeScreen}>
-					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-[5rem] leading-[5.4rem] font-extrabold mx-0 my-16 mb-8 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
+					<motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} variants={titleControl} className="text-4xl md:text-[5rem] leading-[5.4rem] font-extrabold mx-0 my-16 mt-8 mb-0 text-slate-100 text-left z-50 flex flex-row flex-wrap gap-4 gap-y-0">
 						<motion.div variants={titleVariants}>I{"'"}m a Student,</motion.div>
 						<motion.div variants={titleVariants}>Developer & Designer</motion.div>
 					</motion.div>
@@ -198,14 +204,14 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 					</motion.div>
 				</h1>
 				
-				<p className="">I am an 18 year old software engineer from New Zealand</p>
+                <p className="mb-12">I am an 18 year old software engineer from New Zealand 🇳🇿</p>
 
                 {
                     small ?
                         <>
-                                <div className="min-h-[5rem]"></div>
+                                <div className="min-h-[5rem] "></div>
 
-                                <div
+                                <div className="mb-14"
                                     // className={styles.scrollReminderIfHideHide}
                                     >
                                     <ScrollReminder />
@@ -218,8 +224,8 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 			
 			<section className="flex flex-col gap-4 w-full flex-wrap justify-center max-w-3xl mx-auto"> {/* className={styles.projectList} */}
 				<h2 className="font-bold font-public">What do I do?</h2>
-				<p className="text-lg">
-					I work primarily in web technologies, utilizing the power of Typescript, NextJS and Rust to create powerful web experiences.
+				<p className="text-lg opacity-80">
+					I work primarily in web technologies, utilizing the power of Typescript, NextJS and Rust to create <strong className="">powerful web experiences</strong>.
                     <br />  <br />
                     Below is a teaser of my favorite projects at the moment! Take a look, click one and read up about it or try it out for yourself!
 				</p>
@@ -237,7 +243,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				<div className={styles.spacer}></div>
 			
 				<h2 className="font-bold font-public">How do I do it?</h2>
-				<p>Why, not without these incredible tools of course! Below is a wonderful list of some of my favorite tools I know and use. I{'\''}m proud to say that this list grows all the time, I just cant help learning!</p>
+                <p className="text-lg opacity-80">Why, not without these incredible tools of course! Below is a wonderful list of some of my favorite tools I know and use. I{'\''}m proud to say that this list grows all the time, I just can{'\''}t help learning!</p>
 				
 				<ul className={styles.techGrid}
 				>

@@ -143,9 +143,8 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({ pinnedRepos }) =
 				:
 				<></>
 			}
-            
 
-            <section className={`${styles.primarySection}`} style={{ minHeight: small ? "calc(100vh - 150px);" : "35rem" }}>
+            <section className={`${styles.primarySection} max-w-3xl mx-auto`} style={{ minHeight: small ? "calc(100vh - 150px);" : "35rem" }}>
                 <div className={`flex ${small ? "flex-col-reverse justify-items-start items-start gap-8" : "flex-row items-center"} justify-between opacity-70 gap-1 w-full`}>
 					<div className="flex flex-row items-center gap-1">
 						<h2 className="text-[1rem] uppercase">Hi there 👋</h2>

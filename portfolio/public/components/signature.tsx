@@ -5,7 +5,7 @@ import signature from '@public/img/signature_3.png'
 export const Signature: React.FC<{}> = ({ }) => {
     return (
         <div className={styles.signature}>
-            <Image src={signature} alt="Ben White" quality={100} />
+            {/* <Image src={signature} alt="Ben White" quality={100} /> */}
         </div>
     )
 }

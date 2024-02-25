@@ -298,6 +298,7 @@ export const Home: React.FC<{ pinnedRepos: PinnedRepo[] }> = ({
           <ListItem icon={SiPython} text="Python" />
           <ListItem icon={SiGo} text="Go" />
           <ListItem icon={SiC} text="C" />
+          <ListItem icon={SiC} text="C" />
 
           <ListItem icon={SiMysql} text="MySql" />
           <ListItem icon={SiJupyter} text="Jupyter" />
